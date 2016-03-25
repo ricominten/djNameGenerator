@@ -1,0 +1,299 @@
+/*
+	DJ Name Generator
+	Concept & Design by: Michael Kleinman
+	Development: Rico Minten
+*/
+
+
+
+body, html {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: 'Rubik', 'Helvetica', arial, sans-serif;
+	font-weight: 700;
+	font-style: italic;
+	text-transform: uppercase;
+}
+
+	
+body {
+	background: linear-gradient(180deg, #ff00ff, #00ffff);
+	background-size: 200% 200%;
+
+	-webkit-animation: bgAnim 5s ease infinite;
+	-moz-animation: bgAnim 5s ease infinite;
+	animation: bgAnim 5s ease infinite;
+}
+
+@-webkit-keyframes bgAnim {
+    0%{background-position:50% 0%}
+    50%{background-position:50% 100%}
+    100%{background-position:50% 0%}
+}
+@-moz-keyframes bgAnim {
+    0%{background-position:50% 0%}
+    50%{background-position:50% 100%}
+    100%{background-position:50% 0%}
+}
+@keyframes bgAnim { 
+    0%{background-position:50% 0%}
+    50%{background-position:50% 100%}
+    100%{background-position:50% 0%}
+}
+
+
+.audio {
+	display: block;
+	position: fixed;
+	right: 15px;
+	top: 15px;
+	height: 30px;
+	width: 30px;
+}
+
+.audio_icon {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+
+.audio_off {
+	display: none;
+}
+
+.fa {
+	color: #fff;
+}
+
+.container {
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.intro {
+	display: block;
+	position: relative;
+}
+
+.intro h1, .generate h1, .result-name {
+	color: #fff;
+	font-weight: 900;
+	font-size: 40px;
+	line-height: 40px;
+	letter-spacing: -2px;
+}
+
+.result-name {
+	max-width: 300px;
+	margin: 0 auto;
+}
+
+.content {
+	margin: 80px 0 60px 0;
+	height: 200px;
+}
+
+.result .content {
+	height: 260px;
+}
+
+.content--result p {
+	margin-top: 50px;
+}
+
+
+
+.intro p, .generate p, .result p {
+	font-size: 25px;
+	line-height: 25px;
+	letter-spacing: -1px;
+}
+
+button {
+	width: 170px;
+	height: 50px;
+	border: none;
+	outline: none;
+	background-color: #fff;
+	color: #000;
+	font-family: 'Rubik', 'Helvetica', arial, sans-serif;
+	font-weight: 900;
+	font-style: italic;
+	text-transform: uppercase;
+	font-size: 25px;
+	line-height: 50px;
+	-webkit-transition: all .2s ease; /* Safari */
+    transition: all .2s ease;
+    cursor: pointer;
+}
+
+button:hover {
+	-webkit-animation: buttonAnim .15s ease infinite;
+	-moz-animation: buttonAnim .15s ease infinite;
+	animation: buttonAnim .15s ease infinite;
+}
+
+@-webkit-keyframes buttonAnim {
+    0%{background-color: #000; color: #fff;}
+    50%{background-color: #fff; color: #000;}
+    100%{background-color: #000; color: #fff;}
+}
+@-moz-keyframes buttonAnim {
+    0%{background-color: #000; color: #fff;}
+    50%{background-color: #fff; color: #000;}
+    100%{background-color: #000; color: #fff;}
+}
+@keyframes buttonAnim { 
+    0%{background-color: #000; color: #fff;}
+    50%{background-color: #fff; color: #000;}
+    100%{background-color: #000; color: #fff;}
+}
+
+input {
+	width: 300px;
+	height: 50px;
+	border: none;
+	outline: none;
+	background-color: #000;
+	color: #fff;
+	font-family: 'Rubik', 'Helvetica', arial, sans-serif;
+	font-weight: 900;
+	font-style: italic;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 25px;
+	line-height: 50px;
+	margin: 10px 0 20px 0;
+
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #ff0000;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #ff0000;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #ff0000;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #ff0000;
+}
+
+
+.generate {
+	display: none;
+	position: relative;
+}
+
+.result {
+	display: none;
+	position: relative;
+}
+
+.social {
+	position: relative;
+	width: 170px;
+	height: 50px;
+	display: block;
+	margin: 0 auto;
+}
+
+.again, .facebook, .twitter {
+	height: 50px;
+	width: 50px;
+	background-color: #fff;
+	position: absolute;
+	background-size: 100%;
+	cursor: pointer;
+}
+
+
+.again {
+	background-image: url('./img/retry_black.png');
+	left: 0px;
+}
+.facebook {
+	background-image: url('./img/fb_black.png');
+	left: 60px;
+}
+.twitter {
+	background-image: url('./img/tw_black.png');
+	left: 120px;
+}
+
+.again:hover, .facebook:hover, .twitter:hover {
+	background-color: #000;
+}
+
+.again:hover{
+	background-image: url('./img/retry_white.png');
+}
+.facebook:hover {
+	background-image: url('./img/fb_white.png');
+}
+.twitter:hover {
+	background-image: url('./img/tw_white.png');
+}
+
+.panel {
+	text-align: center;
+}
+
+.title {
+	height: 80px;
+}
+.title--small {
+	height: 20px;
+}
+
+
+@media screen and (max-width:500px) {
+	.audio {
+		right: 10px;
+		top: 10px;
+	}
+
+	.container {
+		width: 100%;
+	}
+
+	.content {
+		margin: 50px 0 40px 0;
+		height: 185px;
+	}
+
+	.result .content {
+		height: 245px;
+	}
+
+	.intro h1, .generate h1, .result-name {
+		font-size: 30px;
+		line-height: 30px;
+		letter-spacing: -2px;
+	}
+
+	.intro p, .generate p, .result p {
+		font-size: 20px;
+		line-height: 20px;
+		letter-spacing: -1px;
+	}
+
+	input {
+		width: 250px;
+		height: 35px;
+		font-size: 20px;
+		line-height: 35px;
+		margin: 5px 0 10px 0;
+	}
+}
+
